@@ -24,8 +24,6 @@ include "../navigation.php";
 
         include "../mysql_connect.php";
 
-        // $query = "SELECT * FROM Actor WHERE Name LIKE :ActorName OR (DateOfBirth > :BeginBirthdayRange AND DateOfBirth < :EndBirthdayRange);";
-
         $ActorName = "%$_POST[ActorName]%";
         $BeginBirthdayRange = $_POST[BeginBirthdayRange];
         $EndBirthdayRange = $_POST[EndBirthdayRange];

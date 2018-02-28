@@ -11,4 +11,5 @@ $database = 'cphalenDB';
 $conn = mysqli_connect($host, $username, $secret, $database)
     // Handle possible MySQL connection error
     or die('Could not connect: ' . mysqli_connect_error());
+echo "here!";
 ?>

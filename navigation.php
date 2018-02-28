@@ -13,14 +13,17 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
+			<?php
+			$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+			?>
 			<li class="nav-item ">
-				<a class="nav-link" href="schema.php">Schema</a>
+				<a class="nav-link" href="/schema.php">Schema</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="episodes.php">Episodes</a>
+				<a class="nav-link" href="/episodes.php">Episodes</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="actors.php">Actors</a>
+				<a class="nav-link" href="/actors.php">Actors</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,9 +34,11 @@
                         // Load in series to select from
 						$query = "SELECT SeriesTitle FROM Series;";
 						include "mysql_connect.php";
+						$result = mysqli_query($conn, $query)
+						    or die("Query $query tables failed: " . mysqli_error());
 						// Result tuple with only one item that was selected
 						while ($res = mysqli_fetch_row($result)) {
-							 echo '<a class="dropdown-item" href="series.php/?SeriesTitle=' . $res[0] . '">' . $res[0] . '</a>';
+							 echo '<a class="dropdown-item" href="/series.php/?SeriesTitle=' . $res[0] . '">' . $res[0] . '</a>';
 						}
 						include "mysql_close.php";
 						?>

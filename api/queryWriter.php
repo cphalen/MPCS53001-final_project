@@ -6,7 +6,7 @@ include "../navigation.php";
 
 <br>
 <h2>
-    Your actor search returned:
+    Your writer search returned:
 </h2>
 <br>
 
@@ -27,20 +27,20 @@ include "../navigation.php";
         // This logic prevents the LIKE comparison to "%%"
         // that would occur if the user did not input a value
         // in the form, resulting in a "" form value
-        if($_POST[ActorName] != "") {
-            $ActorName = "%$_POST[ActorName]%";
+        if($_POST[WriterName] != "") {
+            $WriterName = "%$_POST[WriterName]%";
         } else {
-            $ActorName = $_POST[ActorName];
+            $WriterName = $_POST[WriterName];
         }
         $BeginBirthdayRange = $_POST[BeginBirthdayRange];
         $EndBirthdayRange = $_POST[EndBirthdayRange];
 
         $stmt = mysqli_stmt_init($conn);
-        $query = "SELECT * FROM Actor WHERE Name LIKE ? OR (DateOfBirth > ? AND DateOfBirth < ?);";
+        $query = "SELECT * FROM Writer WHERE Name LIKE ? OR (DateOfBirth > ? AND DateOfBirth < ?);";
         if (!mysqli_stmt_prepare($stmt, $query)) {
             echo "SQL statement failed";
         } else {
-            mysqli_stmt_bind_param($stmt, "sss", $ActorName, $BeginBirthdayRange, $EndBirthdayRange);
+            mysqli_stmt_bind_param($stmt, "sss", $WriterName, $BeginBirthdayRange, $EndBirthdayRange);
             mysqli_stmt_execute($stmt);
             $res = mysqli_stmt_get_result($stmt);
         }

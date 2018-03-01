@@ -25,6 +25,12 @@
 			<li class="nav-item">
 				<a class="nav-link" href="/~cphalen/actors.php">Actors</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/~cphalen/writers.php">Writers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/~cphalen/directors.php">Directors</a>
+			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Series
@@ -33,7 +39,7 @@
 						<?php
                         // Load in series to select from
 						include "mysql_connect.php";
-						$res = mysqli_query($conn, "SELECT SeriesTitle FROM Series;")
+						$res = mysqli_query($conn, "SELECT SeriesTitle FROM Series ORDER BY YearRange ASC;")
 						    or die("Query $query tables failed: " . mysqli_error());
 						// Result tuple with only one item that was selected
 						while ($row = mysqli_fetch_row($res)) {

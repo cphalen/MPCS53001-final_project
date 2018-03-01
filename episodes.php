@@ -30,8 +30,8 @@ include "navigation.php";
         <input type="date" name="AirDate" class="form-control">
         <br>
         <label for="Description">Description</label>
-        <input type="text" name="AirDate" class="form-control" placeholder="Spock saves everyone">
-        <small> Any description that contains the value below will be selected</small>
+        <input type="text" name="Description" class="form-control" placeholder="Spock saves everyone">
+        <small> Any description that contains the value below will be selected </small>
 	</div>
 	<button type="search" class="btn btn-primary">Search</button>
 </form>

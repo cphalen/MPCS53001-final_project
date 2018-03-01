@@ -23,7 +23,7 @@ include "navigation.php";
 		<input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation">
         <label for="SeasonNumber">Season Number</label>
         <div class="input-group input-group-sm">
-    		<input type="number" name="SeasonNumber" class="form-control" placeholder="1">
+    		<input type="number" name="SeasonNumber" class="form-control" placeholder="1" min="0">
         </div>
         <br>
         <label for="AirDate">Air date</label>

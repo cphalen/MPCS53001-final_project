@@ -38,7 +38,7 @@ include "../navigation.php";
         $stmt = mysqli_stmt_init($conn);
         $query = "SELECT * FROM Actor WHERE Name LIKE ? OR (DateOfBirth > ? AND DateOfBirth < ?);";
         if (!mysqli_stmt_prepare($stmt, $query)) {
-            echo "SQL statement failed";
+            echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
         } else {
             mysqli_stmt_bind_param($stmt, "sss", $ActorName, $BeginBirthdayRange, $EndBirthdayRange);
             mysqli_stmt_execute($stmt);

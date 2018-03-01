@@ -23,6 +23,9 @@
 				<a class="nav-link" href="/~cphalen/episodes.php">Episodes</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="/~cphalen/seasons.php">Seasons</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="/~cphalen/actors.php">Actors</a>
 			</li>
 			<li class="nav-item">
@@ -30,6 +33,9 @@
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/~cphalen/directors.php">Directors</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/~cphalen/collaborators.php">Collaborators</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

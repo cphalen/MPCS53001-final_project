@@ -8,7 +8,7 @@ include "navigation.php";
 <div class="container">
 <form action="/~cphalen/api/queryWriter.php" method="post">
     <h3>
-        Search by an Writer's name or the range of their birthday
+        Search by an writer's name or the range of their birthday
     </h3>
     <small>
         Both writers whose name resembles the name given and writers whose birthday fall within the range will be displayed

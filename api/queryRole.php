@@ -42,7 +42,7 @@ include "../navigation.php";
         $stmt = mysqli_stmt_init($conn);
         $query = "SELECT Role.Name, Actor.Name, Role.Description FROM Role INNER JOIN Actor USING (ActorID) WHERE Role.Name LIKE ? OR Role.Description LIKE ?;";
         if (!mysqli_stmt_prepare($stmt, $query)) {
-            echo "SQL statement failed";
+            echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
         } else {
             mysqli_stmt_bind_param($stmt, "ss", $RoleName, $Description);
             mysqli_stmt_execute($stmt);

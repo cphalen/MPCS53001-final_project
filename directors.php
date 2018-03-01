@@ -8,7 +8,7 @@ include "navigation.php";
 <div class="container">
 <form action="/~cphalen/api/queryDirector.php" method="post">
     <h3>
-        Search by an Director's name or the range of their birthday
+        Search by an director's name or the range of their birthday
     </h3>
     <small>
         Both directors whose name resembles the name given and directors whose birthday fall within the range will be displayed

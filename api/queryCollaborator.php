@@ -31,6 +31,8 @@ include "../navigation.php";
 
         $i = 1;
 
+        $rowsNumber = 0;
+
         if($_POST[ToggleActors] == "on") {
             $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN ActsIn USING (EpisodeID) INNER JOIN Actor USING (ActorID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
@@ -39,6 +41,7 @@ include "../navigation.php";
                 mysqli_stmt_bind_param($stmt, "s", $EpisodeTitle);
                 mysqli_stmt_execute($stmt);
                 $res = mysqli_stmt_get_result($stmt);
+                $rowsNumber += mysqli_num_rows($res);
                 while ($row = mysqli_fetch_row($res)) {
                     echo " <tr>
                             <th scope='row'>$i</th>
@@ -59,6 +62,7 @@ include "../navigation.php";
                 mysqli_stmt_bind_param($stmt, "s", $EpisodeTitle);
                 mysqli_stmt_execute($stmt);
                 $res = mysqli_stmt_get_result($stmt);
+                $rowsNumber += mysqli_num_rows($res);
                 while ($row = mysqli_fetch_row($res)) {
                     echo " <tr>
                             <th scope='row'>$i</th>
@@ -79,6 +83,7 @@ include "../navigation.php";
                 mysqli_stmt_bind_param($stmt, "s", $EpisodeTitle);
                 mysqli_stmt_execute($stmt);
                 $res = mysqli_stmt_get_result($stmt);
+                $rowsNumber += mysqli_num_rows($res);
                 while ($row = mysqli_fetch_row($res)) {
                     echo " <tr>
                             <th scope='row'>$i</th>
@@ -89,6 +94,10 @@ include "../navigation.php";
                     $i = $i + 1;
                 }
             }
+        }
+
+        if($rowsNumber == 0) {
+            echo '<div class="alert alert-info" role="alert">Your query was correctly processed but did not return a result!</div>';
         }
 
         include "../mysql_close.php";

@@ -49,6 +49,10 @@ include "../navigation.php";
             $res = mysqli_stmt_get_result($stmt);
         }
 
+        if(mysqli_num_rows($res) == 0) {
+            echo '<div class="alert alert-info" role="alert">Your query was correctly processed but did not return a result!</div>';
+        }
+
         $i = 1;
         while ($row = mysqli_fetch_row($res)) {
             echo " <tr>

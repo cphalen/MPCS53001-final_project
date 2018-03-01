@@ -58,6 +58,10 @@ include "../navigation.php";
             }
         }
 
+        if(mysqli_num_rows($res) == 0) {
+            echo '<div class="alert alert-info" role="alert">Your query was correctly processed but did not return a result!</div>';
+        }
+
         include "../mysql_close.php";
         ?>
 

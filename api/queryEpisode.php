@@ -54,20 +54,26 @@ include "../navigation.php";
             mysqli_stmt_bind_param($stmt, "sssss", $EpisodeTitle, $SeriesTitle, $SeasonNumber, $AirDate, $Description);
             mysqli_stmt_execute($stmt);
             $res = mysqli_stmt_get_result($stmt);
-            $i = 1;
-            while ($row = mysqli_fetch_row($res)) {
-                echo " <tr>
-                        <th scope='row'>$i</th>
-                        <td>$row[0]</td>
-                        <td>$row[1]</td>
-                        <td>$row[2]</td>
-                        <td>$row[3]</td>
-                        <td>$row[4]</td>
-                        <td>$row[5]</td>
-                        <td>$row[6]</td>
-                        </tr>";
-                $i = $i + 1;
-            }
+        }
+
+        $i = 1;
+
+        if(mysqli_num_rows($res) == 0) {
+            echo '<div class="alert alert-info" role="alert">Your query was correctly processed but did not return a result!</div>';
+        }
+
+        while ($row = mysqli_fetch_row($res)) {
+            echo " <tr>
+                    <th scope='row'>$i</th>
+                    <td>$row[0]</td>
+                    <td>$row[1]</td>
+                    <td>$row[2]</td>
+                    <td>$row[3]</td>
+                    <td>$row[4]</td>
+                    <td>$row[5]</td>
+                    <td>$row[6]</td>
+                    </tr>";
+            $i = $i + 1;
         }
 
         include "../mysql_close.php";

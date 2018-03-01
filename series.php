@@ -16,7 +16,7 @@ $res = mysqli_query($conn, $query)
 // Only one response expected
 $row = mysqli_fetch_row($res);
 echo "<br>";
-echo "<h3 class='col-9 mx-auto'> Aired: " . utf8_encode($row[1]) . "</h3>";
+echo "<h3 class='col-9 mx-auto'> Aired: " . $row[1] . "</h3>";
 echo "<br><h4 class='col-9 mx-auto'>Description</h4>";
 echo "<div class='row'><h5 class='jumbotron col-9 mx-auto'>$row[2]</h5></div>";
 

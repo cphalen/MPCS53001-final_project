@@ -31,7 +31,7 @@ include "../navigation.php";
 
         $i = 1;
 
-        if($_POST[ToggleActors]) {
+        if($_POST[ToggleActors] == "on") {
             $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN ActsIn USING (EpisodeID) INNER JOIN Actor USING (ActorID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
                 echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
@@ -51,7 +51,7 @@ include "../navigation.php";
             }
         }
 
-        if($_POST[ToggleWriters]) {
+        if($_POST[ToggleWriters] == "on") {
             $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN Writes USING (EpisodeID) INNER JOIN Writer USING (WriterID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
                 echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
@@ -71,7 +71,7 @@ include "../navigation.php";
             }
         }
 
-        if($_POST[ToggleDirectors]) {
+        if($_POST[ToggleDirectors] == "on") {
             $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN Directs USING (EpisodeID) INNER JOIN Director USING (DirectorID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
                 echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';

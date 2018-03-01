@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/~cphalen/api/queryCollaborator.php" method="post">
+<form action="/api/queryCollaborator.php" method="post">
     <h3>
         Search by an episode by title and see the staff/crew that worked in that episode's production
     </h3>

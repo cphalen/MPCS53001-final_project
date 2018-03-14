@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/api/queryDirector.php" method="post">
+<form action="/~cphalen/api/queryDirector.php" method="post">
     <h3>
         Search by an director's name or the range of their birthday
     </h3>

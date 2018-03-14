@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/api/queryEpisode.php" method="post">
+<form action="/~cphalen/api/queryEpisode.php" method="post">
     <h3>
         Search by an episode's title, air date, series/season, and description
     </h3>

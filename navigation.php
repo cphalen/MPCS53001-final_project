@@ -20,25 +20,25 @@
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
 			<li class="nav-item ">
-				<a class="nav-link" href="/roles.php">Characters</a>
+				<a class="nav-link" href="/~cphalen/roles.php">Characters</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/episodes.php">Episodes</a>
+				<a class="nav-link" href="/~cphalen/episodes.php">Episodes</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/seasons.php">Seasons</a>
+				<a class="nav-link" href="/~cphalen/seasons.php">Seasons</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/actors.php">Actors</a>
+				<a class="nav-link" href="/~cphalen/actors.php">Actors</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/writers.php">Writers</a>
+				<a class="nav-link" href="/~cphalen/writers.php">Writers</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/directors.php">Directors</a>
+				<a class="nav-link" href="/~cphalen/directors.php">Directors</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/collaborators.php">Collaborators</a>
+				<a class="nav-link" href="/~cphalen/collaborators.php">Collaborators</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,7 +52,7 @@
 						    or die("Query $query tables failed: " . mysqli_error());
 						// Result tuple with only one item that was selected
 						while ($row = mysqli_fetch_row($res)) {
-							 echo '<a class="dropdown-item" href="/series.php/?SeriesTitle=' . $row[0] . '">' . $row[0] . '</a>';
+							 echo '<a class="dropdown-item" href="/~cphalen/series.php/?SeriesTitle=' . $row[0] . '">' . $row[0] . '</a>';
 						}
 						include "mysql_close.php";
 						?>
@@ -63,13 +63,13 @@
 					Add
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="/insert/role.php">Characters</a>
-					<a class="dropdown-item" href="/insert/episode.php">Episodes</a>
-					<a class="dropdown-item" href="/insert/season.php">Seasons</a>
-					<a class="dropdown-item" href="/insert/actor.php">Actors</a>
-					<a class="dropdown-item" href="/insert/writer.php">Writers</a>
-					<a class="dropdown-item" href="/insert/director.php">Directors</a>
-					<a class="dropdown-item" href="/insert/series.php">Series</a>
+					<a class="dropdown-item" href="/~cphalen/insert/role.php">Characters</a>
+					<a class="dropdown-item" href="/~cphalen/insert/episode.php">Episodes</a>
+					<a class="dropdown-item" href="/~cphalen/insert/season.php">Seasons</a>
+					<a class="dropdown-item" href="/~cphalen/insert/actor.php">Actors</a>
+					<a class="dropdown-item" href="/~cphalen/insert/writer.php">Writers</a>
+					<a class="dropdown-item" href="/~cphalen/insert/director.php">Directors</a>
+					<a class="dropdown-item" href="/~cphalen/insert/series.php">Series</a>
 				</div>
 			</li>
 		</ul>

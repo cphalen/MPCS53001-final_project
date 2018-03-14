@@ -26,7 +26,7 @@ $ActorName = $row[2];
 
 <br>
 <div class="container">
-    <form action="/api/editRole.php?mode=update&id=<?php echo $RoleID?>" method="post">
+    <form action="/~cphalen/api/editRole.php?mode=update&id=<?php echo $RoleID?>" method="post">
         <?php
             if($status == "alreadySuchName") {
                 echo '<div class="alert alert-danger" role="alert"> There seems already to have been a charater with input name. Please check your inputs and try again! </div>';

@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/api/querySeason.php" method="post">
+<form action="/~cphalen/api/querySeason.php" method="post">
     <h3>
         Search by a season's year, series, and description
     </h3>

@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-    <form action="/api/queryActor.php" method="post">
+    <form action="/~cphalen/api/queryActor.php" method="post">
         <h3>
             Search by an actor's name or the range of their birthday
         </h3>

@@ -49,10 +49,10 @@ $Description = $row[3];
         <br>
     	<div class="form-group col-6">
             <label for="SeriesTitle">Series title</label>
-            <input type="text" name="SeriesTitle" class="form-control" value="<?php echo $SeriesTitle ?>" required>
+            <input type="text" name="SeriesTitle" class="form-control" value="<?php echo $SeriesTitle ?>" required="true">
             <label for="SeasonNumber">Season Number</label>
             <div class="input-group input-group-sm">
-                <input type="number" name="SeasonNumber" class="form-control" value="<?php echo $SeasonNumber ?>" min="1" required>
+                <input type="number" name="SeasonNumber" class="form-control" value="<?php echo $SeasonNumber ?>" min="1" required="true">
             </div>
             <br>
             <label for="Year">Year</label>

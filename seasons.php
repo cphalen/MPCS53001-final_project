@@ -18,6 +18,7 @@ include "navigation.php";
 	<div class="form-group col-6">
         <label for="SeriesTitle">Series title</label>
 		<input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation">
+        <small> Series title must match exactly to show result </small>
         <br>
         <label for="Year">Year</label>
         <input type="number" name="Year" class="form-control" placeholder="1985" min="1">

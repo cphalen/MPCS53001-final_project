@@ -22,13 +22,13 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new actor with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
     		<label for="ActorName">Actor name</label>
-    		<input type="text" name="ActorName" class="form-control" placeholder="William Shatner" requried>
+    		<input type="text" name="ActorName" class="form-control" placeholder="William Shatner" required="true">
     	</div>
     	<div class="form-group col-4">
     		<label for="Birthday">Birthday</label>

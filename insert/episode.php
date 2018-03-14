@@ -26,31 +26,30 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new episode with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
     		<label for="EpisodeTitle">Episode title</label>
-    		<input type="text" name="EpisodeTitle" class="form-control" placeholder="Balance of Terror" required>
+    		<input type="text" name="EpisodeTitle" class="form-control" placeholder="Balance of Terror" required="true">
             <label for="EpisodeNumber">Episode Number</label>
             <div class="input-group input-group-sm">
-        		<input type="number" name="EpisodeNumber" class="form-control" placeholder="1" min="1" required>
+        		<input type="number" name="EpisodeNumber" class="form-control" placeholder="1" min="1" required="true">
             </div>
             <br>
             <label for="SeriesTitle">Series title</label>
-    		<input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation" required>
+    		<input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation" required="true">
             <label for="SeasonNumber">Season Number</label>
             <div class="input-group input-group-sm">
-        		<input type="number" name="SeasonNumber" class="form-control" placeholder="1" min="1" required>
+        		<input type="number" name="SeasonNumber" class="form-control" placeholder="1" min="1" required="true">
             </div>
             <br>
             <label for="AirDate">Air date</label>
             <input type="date" name="AirDate" class="form-control">
             <br>
             <label for="Description">Description</label>
-            <input type="text" name="Description" class="form-control" placeholder="Spock saves everyone">
-            <small> Any description that contains the value below will be selected </small>
+            <textarea name="Description" class="form-control" rows="4" placeholder="Spock saves everyone ... again"></textarea>
             <br>
             <br>
             <label class="btn btn-sm btn-secondary">

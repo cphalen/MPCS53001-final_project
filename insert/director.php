@@ -22,13 +22,13 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new director with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
     		<label for="DirectorName">Director name</label>
-    		<input type="text" name="DirectorName" class="form-control" placeholder="Clu">
+    		<input type="text" name="DirectorName" class="form-control" placeholder="Clu" required="true">
     	</div>
     	<div class="form-group col-4">
     		<label for="Birthday">Birthday</label>

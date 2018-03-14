@@ -23,7 +23,7 @@ $WriterName = htmlspecialchars($_GET["name"]);
             Insert a new row in the writes for table with all of the below information
         </h3>
         <small>
-            All inputs are requried
+            All inputs are required
         </small>
         <br>
         <br>

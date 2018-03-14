@@ -41,13 +41,13 @@ $Description = $row[2];
             Update or delete an already existing series
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
             <label for="SeriesTitle">Series title</label>
-            <input type="text" name="SeriesTitle" class="form-control" value="<?php echo $SeriesTitle ?>" required>
+            <input type="text" name="SeriesTitle" class="form-control" value="<?php echo $SeriesTitle ?>" required="true">
             <br>
             <label for="YearRange">Year Range</label>
             <input type="text" name="YearRange" class="form-control" value="<?php echo $YearRange ?>" min="1">

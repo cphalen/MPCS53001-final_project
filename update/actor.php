@@ -45,7 +45,7 @@ $DateOfBirth = $row[1];
         <br>
     	<div class="form-group col-6">
     		<label for="ActorName">Actor name</label>
-    		<input type="text" name="ActorName" class="form-control" value="<?php echo $ActorName ?>">
+    		<input type="text" name="ActorName" class="form-control" value="<?php echo $ActorName ?>" required="true">
     	</div>
     	<div class="form-group col-4">
     		<label for="Birthday">Birthday</label>

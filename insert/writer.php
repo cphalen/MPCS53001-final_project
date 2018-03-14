@@ -22,13 +22,13 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new writer with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
     		<label for="WriterName">Writer name</label>
-    		<input type="text" name="WriterName" class="form-control" placeholder="William Shatner">
+    		<input type="text" name="WriterName" class="form-control" placeholder="Good Will Hunting" required="true">
     	</div>
     	<div class="form-group col-4">
     		<label for="Birthday">Birthday</label>

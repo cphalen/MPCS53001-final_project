@@ -24,16 +24,16 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new season with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
             <label for="SeriesTitle">Series title</label>
-            <input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation" required>
+            <input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation" required="true">
             <label for="SeasonNumber">Season Number</label>
             <div class="input-group input-group-sm">
-                <input type="number" name="SeasonNumber" class="form-control" placeholder="1" min="1" required>
+                <input type="number" name="SeasonNumber" class="form-control" placeholder="1" min="1" required="true">
             </div>
             <br>
             <label for="Year">Year</label>

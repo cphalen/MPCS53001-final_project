@@ -22,13 +22,13 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new series with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
             <label for="SeriesTitle">Series title</label>
-            <input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation" required>
+            <input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation" required="true">
             <br>
             <label for="YearRange">Year Range</label>
             <input type="text" name="YearRange" class="form-control" placeholder="1985-1986" min="1">

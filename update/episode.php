@@ -54,26 +54,24 @@ $Favorite = $row[6];
     <br>
 	<div class="form-group col-6">
 		<label for="EpisodeTitle">Episode title</label>
-		<input type="text" name="EpisodeTitle" class="form-control" value="<?php echo $EpisodeTitle ?>" required>
+		<input type="text" name="EpisodeTitle" class="form-control" value="<?php echo $EpisodeTitle ?>" required="true">
         <label for="EpisodeNumber">Episode Number</label>
         <div class="input-group input-group-sm">
-    		<input type="number" name="EpisodeNumber" class="form-control" value="<?php echo $EpisodeNumber ?>" min="1" required>
+    		<input type="number" name="EpisodeNumber" class="form-control" value="<?php echo $EpisodeNumber ?>" min="1" required="true">
         </div>
         <br>
         <label for="SeriesTitle">Series title</label>
-		<input type="text" name="SeriesTitle" class="form-control" value="<?php echo $SeriesTitle ?>" required>
+		<input type="text" name="SeriesTitle" class="form-control" value="<?php echo $SeriesTitle ?>" required="true">
         <label for="SeasonNumber">Season Number</label>
         <div class="input-group input-group-sm">
-    		<input type="number" name="SeasonNumber" class="form-control" value="<?php echo $SeasonNumber ?>" min="1" required>
+    		<input type="number" name="SeasonNumber" class="form-control" value="<?php echo $SeasonNumber ?>" min="1" required="true">
         </div>
         <br>
         <label for="AirDate">Air date</label>
         <input type="date" name="AirDate" value="<?php echo $AirDate ?>" class="form-control">
         <br>
         <label for="Description">Description</label>
-        <input type="text" name="Description" class="form-control" value="<?php echo $Description ?>">
-        <small> Any description that contains the value below will be selected </small>
-        <br>
+        <textarea name="Description" class="form-control" rows="4"><?php echo $Description ?></textarea>
         <br>
         <label class="btn btn-sm btn-secondary">
             <input name="Favorite" type="checkbox" <?php if($Favorite == True) { echo "checked"; } ?>> Favorite </input>

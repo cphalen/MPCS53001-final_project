@@ -24,18 +24,18 @@ $status = htmlspecialchars($_GET["status"]);
             Insert a new character with all of the below information
         </h3>
         <small>
-            Only certain inputs are requried
+            Only certain inputs are required
         </small>
         <br>
         <br>
     	<div class="form-group col-6">
     		<label for="RoleName">Character name</label>
-    		<input type="text" name="RoleName" class="form-control" placeholder="Kevin Flynn">
+    		<input type="text" name="RoleName" class="form-control" placeholder="Kevin Flynn" required="true">
     	</div>
         <br>
         <div class="form-group col-6">
     		<label for="ActorName">Actor name</label>
-    		<input type="text" name="ActorName" class="form-control" placeholder="William Shatner">
+    		<input type="text" name="ActorName" class="form-control" placeholder="William Shatner" required="true">
             <small>This must refer to a real actor already in the database</small>
     	</div>
         <br>

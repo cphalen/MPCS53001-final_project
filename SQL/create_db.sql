@@ -1,4 +1,34 @@
+-- In the correct order so as not to
+-- violate any foriegn key restraints
+DROP TABLE IF EXISTS Writes;
+DROP TABLE IF EXISTS Directs;
+DROP TABLE IF EXISTS ActsIn;
+DROP TABLE IF EXISTS AppearsIn;
+DROP TABLE IF EXISTS Role;
+DROP TABLE IF EXISTS Writer;
+DROP TABLE IF EXISTS Director;
+DROP TABLE IF EXISTS Actor;
 DROP TABLE IF EXISTS Episode;
+DROP TABLE IF EXISTS Season;
+DROP TABLE IF EXISTS Series;
+
+CREATE TABLE Series (
+	SeriesTitle varchar(256),
+	YearRange varchar(256),
+	Description varchar(2048),
+	PRIMARY KEY (SeriesTitle)
+);
+
+CREATE TABLE Season (
+	SeasonID INT AUTO_INCREMENT,
+	SeasonNumber INT,
+	Year INT,
+	Description varchar(2048),
+	SeriesTitle varchar(256) NOT NULL,
+	PRIMARY KEY (SeasonID),
+	FOREIGN KEY (SeriesTitle) REFERENCES Series(SeriesTitle) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 CREATE TABLE Episode (
 	EpisodeID INT AUTO_INCREMENT,
 	EpisodeNumber INT,
@@ -7,10 +37,10 @@ CREATE TABLE Episode (
 	Description varchar(2048),
 	SeasonID INT,
 	Favorite INT,
-	PRIMARY KEY (EpisodeID)
+	PRIMARY KEY (EpisodeID),
+	FOREIGN KEY (SeasonID) REFERENCES Season(SeasonID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS Writer;
 CREATE TABLE Writer (
 	WriterID INT AUTO_INCREMENT,
 	Name varchar(256),
@@ -18,7 +48,6 @@ CREATE TABLE Writer (
 	PRIMARY KEY (WriterID)
 );
 
-DROP TABLE IF EXISTS Director;
 CREATE TABLE Director (
 	DirectorID INT AUTO_INCREMENT,
 	Name varchar(256),
@@ -26,7 +55,6 @@ CREATE TABLE Director (
 	PRIMARY KEY (DirectorID)
 );
 
-DROP TABLE IF EXISTS Actor;
 CREATE TABLE Actor (
 	ActorID INT AUTO_INCREMENT,
 	Name varchar(256),
@@ -34,57 +62,44 @@ CREATE TABLE Actor (
 	PRIMARY KEY (ActorID)
 );
 
-DROP TABLE IF EXISTS Role;
 CREATE TABLE Role (
 	RoleID INT AUTO_INCREMENT,
 	Name varchar(256),
 	Description varchar(2048),
 	ActorID INT NOT NULL,
-	PRIMARY KEY (RoleID)
+	PRIMARY KEY (RoleID),
+	FOREIGN KEY (ActorID) REFERENCES Actor(ActorID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS Writes;
 CREATE TABLE Writes (
 	WriterID INT,
 	EpisodeID INT,
-	PRIMARY KEY (WriterID, EpisodeID)
+	PRIMARY KEY (WriterID, EpisodeID),
+	FOREIGN KEY (WriterID) REFERENCES Writer(WriterID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (EpisodeID) REFERENCES Episode(EpisodeID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS Directs;
 CREATE TABLE Directs (
 	DirectorID INT,
 	EpisodeID INT,
-	PRIMARY KEY (DirectorID, EpisodeID)
+	PRIMARY KEY (DirectorID, EpisodeID),
+	FOREIGN KEY (DirectorID) REFERENCES Director(DirectorID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (EpisodeID) REFERENCES Episode(EpisodeID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS ActsIn;
 CREATE TABLE ActsIn (
 	ActorID INT,
 	EpisodeID INT,
-	PRIMARY KEY (ActorID, EpisodeID)
+	PRIMARY KEY (ActorID, EpisodeID),
+	FOREIGN KEY (ActorID) REFERENCES Actor(ActorID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (EpisodeID) REFERENCES Episode(EpisodeID) ON UPDATE CASCADE ON DELETE CASCADE
+
 );
 
-DROP TABLE IF EXISTS AppearsIn;
 CREATE TABLE AppearsIn (
 	RoleID INT,
 	EpisodeID INT,
-	PRIMARY KEY (RoleID, EpisodeID)
-);
-
-DROP TABLE IF EXISTS Season;
-CREATE TABLE Season (
-	SeasonID INT AUTO_INCREMENT,
-	SeasonNumber INT,
-	Year INT,
-	Description varchar(2048),
-	SeriesTitle varchar(256) NOT NULL,
-	PRIMARY KEY (SeasonID)
-);
-
-DROP TABLE IF EXISTS Series;
-CREATE TABLE Series (
-	SeriesTitle varchar(256),
-	YearRange varchar(256),
-	Description varchar(2048),
-	PRIMARY KEY (SeriesTitle)
+	PRIMARY KEY (RoleID, EpisodeID),
+	FOREIGN KEY (RoleID) REFERENCES Role(RoleID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (EpisodeID) REFERENCES Episode(EpisodeID) ON UPDATE CASCADE ON DELETE CASCADE
 );

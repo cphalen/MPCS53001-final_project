@@ -14,6 +14,7 @@ include "../navigation.php";
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Update</th>
             <th scope="col">Series Title</th>
             <th scope="col">Season #</th>
             <th scope="col">Year</th>
@@ -38,9 +39,9 @@ include "../navigation.php";
         }
 
         $stmt = mysqli_stmt_init($conn);
-        $query = "SELECT SeriesTitle, SeasonNumber, Year, Description FROM Season WHERE SeriesTitle=? OR Year=? OR Description LIKE ?;";
+        $query = "SELECT SeriesTitle, SeasonNumber, Year, Description, SeasonID FROM Season WHERE SeriesTitle=? OR Year=? OR Description LIKE ?;";
         if (!mysqli_stmt_prepare($stmt, $query)) {
-            echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
+            echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
         } else {
             mysqli_stmt_bind_param($stmt, "sss", $SeriesTitle, $Year, $Description);
             mysqli_stmt_execute($stmt);
@@ -49,6 +50,13 @@ include "../navigation.php";
             while ($row = mysqli_fetch_row($res)) {
                 echo " <tr>
                         <th scope='row'>$i</th>
+                        <td>
+                            <a href='../update/season.php?id=$row[4]'>
+                                <button type='button' class='btn btn-primary btn-default btn-md'>
+                                    <i class='fas fa-edit'></i>
+                                </button>
+                            </a>
+                        </td>
                         <td>$row[0]</td>
                         <td>$row[1]</td>
                         <td>$row[2]</td>

@@ -14,6 +14,7 @@ include "../navigation.php";
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Update</th>
             <th scope="col">Collaboration</th>
             <th scope="col">Name</th>
             <th scope="col">Birthday</th>
@@ -34,9 +35,9 @@ include "../navigation.php";
         $rowsNumber = 0;
 
         if($_POST[ToggleActors] == "on") {
-            $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN ActsIn USING (EpisodeID) INNER JOIN Actor USING (ActorID) WHERE Title=?;";
+            $query = "SELECT Name, DateOfBirth, ActorID FROM Episode INNER JOIN ActsIn USING (EpisodeID) INNER JOIN Actor USING (ActorID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
-                echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
+                echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
             } else {
                 mysqli_stmt_bind_param($stmt, "s", $EpisodeTitle);
                 mysqli_stmt_execute($stmt);
@@ -45,6 +46,13 @@ include "../navigation.php";
                 while ($row = mysqli_fetch_row($res)) {
                     echo " <tr>
                             <th scope='row'>$i</th>
+                            <td>
+                                <a href='../update/actor.php?id=$row[2]'>
+                                    <button type='button' class='btn btn-primary btn-default btn-md'>
+                                        <i class='fas fa-edit'></i>
+                                    </button>
+                                </a>
+                            </td>
                             <td>Actor</td>
                             <td>$row[0]</td>
                             <td>$row[1]</td>
@@ -55,9 +63,9 @@ include "../navigation.php";
         }
 
         if($_POST[ToggleWriters] == "on") {
-            $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN Writes USING (EpisodeID) INNER JOIN Writer USING (WriterID) WHERE Title=?;";
+            $query = "SELECT Name, DateOfBirth, WriterID FROM Episode INNER JOIN Writes USING (EpisodeID) INNER JOIN Writer USING (WriterID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
-                echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
+                echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
             } else {
                 mysqli_stmt_bind_param($stmt, "s", $EpisodeTitle);
                 mysqli_stmt_execute($stmt);
@@ -66,6 +74,13 @@ include "../navigation.php";
                 while ($row = mysqli_fetch_row($res)) {
                     echo " <tr>
                             <th scope='row'>$i</th>
+                            <td>
+                                <a href='../update/writer.php?id=$row[2]'>
+                                    <button type='button' class='btn btn-primary btn-default btn-md'>
+                                        <i class='fas fa-edit'></i>
+                                    </button>
+                                </a>
+                            </td>
                             <td>Writer</td>
                             <td>$row[0]</td>
                             <td>$row[1]</td>
@@ -76,9 +91,9 @@ include "../navigation.php";
         }
 
         if($_POST[ToggleDirectors] == "on") {
-            $query = "SELECT Name, DateOfBirth FROM Episode INNER JOIN Directs USING (EpisodeID) INNER JOIN Director USING (DirectorID) WHERE Title=?;";
+            $query = "SELECT Name, DateOfBirth, DirectorID FROM Episode INNER JOIN Directs USING (EpisodeID) INNER JOIN Director USING (DirectorID) WHERE Title=?;";
             if (!mysqli_stmt_prepare($stmt, $query)) {
-                echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
+                echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
             } else {
                 mysqli_stmt_bind_param($stmt, "s", $EpisodeTitle);
                 mysqli_stmt_execute($stmt);
@@ -87,6 +102,13 @@ include "../navigation.php";
                 while ($row = mysqli_fetch_row($res)) {
                     echo " <tr>
                             <th scope='row'>$i</th>
+                            <td>
+                                <a href='../update/director.php?id=$row[2]'>
+                                    <button type='button' class='btn btn-primary btn-default btn-md'>
+                                        <i class='fas fa-edit'></i>
+                                    </button>
+                                </a>
+                            </td>
                             <td>Director</td>
                             <td>$row[0]</td>
                             <td>$row[1]</td>

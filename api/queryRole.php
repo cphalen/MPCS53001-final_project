@@ -14,6 +14,7 @@ include "../navigation.php";
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Update</th>
             <th scope="col">Character Name</th>
             <th scope="col">Actor Name</th>
             <th scope="col">Description</th>
@@ -40,9 +41,9 @@ include "../navigation.php";
         }
 
         $stmt = mysqli_stmt_init($conn);
-        $query = "SELECT Role.Name, Actor.Name, Role.Description FROM Role INNER JOIN Actor USING (ActorID) WHERE Role.Name LIKE ? OR Role.Description LIKE ?;";
+        $query = "SELECT Role.Name, Actor.Name, Role.Description, Role.RoleID FROM Role INNER JOIN Actor USING (ActorID) WHERE Role.Name LIKE ? OR Role.Description LIKE ?;";
         if (!mysqli_stmt_prepare($stmt, $query)) {
-            echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
+            echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
         } else {
             mysqli_stmt_bind_param($stmt, "ss", $RoleName, $Description);
             mysqli_stmt_execute($stmt);
@@ -57,6 +58,13 @@ include "../navigation.php";
         while ($row = mysqli_fetch_row($res)) {
             echo " <tr>
                     <th scope='row'>$i</th>
+                    <td>
+                        <a href='../update/role.php?id=$row[3]'>
+                            <button type='button' class='btn btn-primary btn-default btn-md'>
+                                <i class='fas fa-edit'></i>
+                            </button>
+                        </a>
+                    </td>
                     <td>$row[0]</td>
                     <td>$row[1]</td>
                     <td>$row[2]</td>

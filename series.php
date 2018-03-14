@@ -19,6 +19,17 @@ echo "<br>";
 echo "<h3 class='col-9 mx-auto'>" . $row[1] . "</h3>";
 echo "<br><h4 class='col-9 mx-auto'>Description</h4>";
 echo "<div class='row'><h5 class='jumbotron col-9 mx-auto'>$row[2]</h5></div>";
+echo "
+    <div class='col-9 mx-auto'>
+        <big>
+            Edit
+        </big>
+        <a href='../update/series.php?id=$row[0]'>
+            <button type='button' class='btn btn-primary btn-default btn-md'>
+                <i class='fas fa-edit'></i>
+            </button>
+        </a>
+    </div>";
 
 include "../mysql_close.php";
 ?>

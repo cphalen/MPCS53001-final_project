@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/~cphalen/api/queryRole.php" method="post">
+<form action="/api/queryRole.php" method="post">
     <h3>
         Search by a characters name or description
     </h3>

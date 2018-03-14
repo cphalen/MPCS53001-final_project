@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/~cphalen/api/queryWriter.php" method="post">
+<form action="/api/queryWriter.php" method="post">
     <h3>
         Search by an writer's name or the range of their birthday
     </h3>

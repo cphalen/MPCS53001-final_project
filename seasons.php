@@ -6,7 +6,7 @@ include "navigation.php";
 
 <br>
 <div class="container">
-<form action="/~cphalen/api/querySeason.php" method="post">
+<form action="/api/querySeason.php" method="post">
     <h3>
         Search by a season's year, series, and description
     </h3>
@@ -20,7 +20,7 @@ include "navigation.php";
 		<input type="text" name="SeriesTitle" class="form-control" placeholder="The Next Generation">
         <br>
         <label for="Year">Year</label>
-        <input type="number" name="Year" class="form-control" placeholder="1985" min="0">
+        <input type="number" name="Year" class="form-control" placeholder="1985" min="1">
         <br>
         <label for="Description">Description</label>
         <input type="text" name="Description" class="form-control" placeholder="Spock saves everyone">

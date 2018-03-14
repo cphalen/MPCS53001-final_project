@@ -14,6 +14,7 @@ include "../navigation.php";
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Update</th>
             <th scope="col">Title</th>
             <th scope="col">Airdate</th>
             <th scope="col">Episode #</th>
@@ -47,9 +48,9 @@ include "../navigation.php";
         $AirDate = $_POST[AirDate];
 
         $stmt = mysqli_stmt_init($conn);
-        $query = "SELECT Episode.Title, Episode.AirDate, EpisodeNumber, SeasonNumber, SeriesTitle, Favorite, Episode.Description FROM Episode INNER JOIN Season USING (SeasonID) WHERE Title LIKE ? OR (SeriesTitle=? AND SeasonNumber=?) OR AirDate=? OR Episode.Description LIKE ?;";
+        $query = "SELECT Episode.Title, Episode.AirDate, EpisodeNumber, SeasonNumber, SeriesTitle, Favorite, Episode.Description, EpisodeID FROM Episode INNER JOIN Season USING (SeasonID) WHERE Title LIKE ? OR (SeriesTitle=? AND SeasonNumber=?) OR AirDate=? OR Episode.Description LIKE ?;";
         if (!mysqli_stmt_prepare($stmt, $query)) {
-            echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the given request -- please double check your inputs and try again!</div>';
+            echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
         } else {
             mysqli_stmt_bind_param($stmt, "sssss", $EpisodeTitle, $SeriesTitle, $SeasonNumber, $AirDate, $Description);
             mysqli_stmt_execute($stmt);
@@ -65,6 +66,13 @@ include "../navigation.php";
         while ($row = mysqli_fetch_row($res)) {
             echo " <tr>
                     <th scope='row'>$i</th>
+                    <td>
+                        <a href='../update/episode.php?id=$row[7]'>
+                            <button type='button' class='btn btn-primary btn-default btn-md'>
+                                <i class='fas fa-edit'></i>
+                            </button>
+                        </a>
+                    </td>
                     <td>$row[0]</td>
                     <td>$row[1]</td>
                     <td>$row[2]</td>

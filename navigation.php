@@ -72,6 +72,9 @@
 					<a class="dropdown-item" href="/~cphalen/insert/series.php">Series</a>
 				</div>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/~cphalen/datawarehouse.php">Data Warehouse</a>
+			</li>
 		</ul>
 	</div>
 </nav>

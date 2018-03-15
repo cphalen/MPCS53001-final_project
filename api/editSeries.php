@@ -11,11 +11,17 @@ $YearRange = $_POST[YearRange];
 $Description = $_POST[Description];
 
 $mode = htmlspecialchars($_GET["mode"]);
+// In update mode the SeriesTitle actually does
+// not come from the form becuase it must be
+// immuatable to satisfy foreign key constraints
+if($mode == "update") {
+    $SeriesTitle = htmlspecialchars($_GET["id"]);
+}
 $stmt = mysqli_stmt_init($conn);
 
 $query = "SELECT SeriesTitle FROM Series WHERE SeriesTitle = ?;";
 if (!mysqli_stmt_prepare($stmt, $query)) {
-    echo '<div class="alert alert-danger" role="alert">The server ran into trouble processing the second given request -- please double check your inputs and try again!</div>';
+    echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
 } else {
     mysqli_stmt_bind_param($stmt, "s", $SeriesTitle);
     mysqli_stmt_execute($stmt);
@@ -47,16 +53,18 @@ if($mode == "insert") {
 
 
 if($mode == "insert") {
-    $query = "INSERT INTO Series(SeriesTitle, YearRange, Description) VALUES(?, ?, ?);";
+    // We fetch the SeriesTitle ourselves so we know that it cannot be hazardous
+    $query = "INSERT INTO Series(SeriesTitle, YearRange, Description) VALUES('$SeriesTitle', ?, ?);";
+    echo $query;
 } elseif ($mode == "update") {
     // We fetch the SeriesTitle ourselves so we know that it cannot be hazardous
-    $query = "UPDATE Series SET SeriesTitle=? AND YearRange=? AND Description=? WHERE SeriesTitle = $SeriesTitle;";
+    $query = "UPDATE Series SET YearRange=?, Description=? WHERE SeriesTitle = '$SeriesTitle';";
 }
 
 if (!mysqli_stmt_prepare($stmt, $query)) {
-    echo '<div class="alert alert-danger" role="alert">Internal server error -- please contact site administrators. Our apologies!</div>';
+    echo '<div class="alert alert-danger" role="alert">ILLLLLLnternal server error -- please contact site administrators. Our apologies!</div>';
 } else {
-    mysqli_stmt_bind_param($stmt, "sss", $SeriesTitle, $YearRange, $Description);
+    mysqli_stmt_bind_param($stmt, "ss", $YearRange, $Description);
     $res = mysqli_stmt_execute($stmt);
 }
 

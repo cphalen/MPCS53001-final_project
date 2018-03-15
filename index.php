@@ -1,7 +1,7 @@
 <head>
     <style>
         body {
-            background-image: url("/images/background.png");
+            background-image: url("/~cphalen/images/background.png");
         }
     </style>
 </head>
